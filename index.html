@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>王君琦的个人网站</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: #eee;
+            position: relative;
+            /* 为body添加定位，作为背景图的参考层 */
+        }
+
+        .background-image {
+            position: fixed;
+            /* 固定定位，始终在页面底层 */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100vh;
+            /* 覆盖整个视口高度 */
+            z-index: -1;
+            /* 层级设为负数，确保在所有内容下方 */
+            opacity: 0.8;
+            /* 可选：调整背景图透明度 */
+        }
+
+        /* 背景图样式 */
+
+        /*body整体布局*/
+        /* * {
+            border: 1px solid;
+        } */
+
+        /*布局小技巧给所有框都加边框*/
+        .flex {
+            display: flex;
+        }
+
+        /*横向分布*/
+        .column {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /*规定所划定区域的最大尺寸*/
+        .ZDYS {
+            width: 1300px;
+            margin: auto;
+        }
+
+        /*给一个最大的盒子尺寸，之后在这盒子里建的盒子%超不过这个最大尺寸*/
+        .toubuYS {
+            width: 100%;
+            height: 100px;
+            border-radius: 20px;
+            /* background-color: #007bff; */
+        }
+
+        /*头部样式*/
+        .toubuleftYS {
+            width: 500px;
+            height: 40px;
+            margin: 5px 5px 0px 5px;
+            border-radius: 10px;
+        }
+
+        /*头部左样式*/
+        .toubuleftDYGYS {
+            width: 85px;
+            height: 20px;
+            border-radius: 5px;
+            margin: 10px 5px 0px 5px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .toubuleftDYGYS1 {
+            width: 90px;
+            height: 20px;
+            border-radius: 5px;
+            margin: 10px 5px 0px 5px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /*头部左单元格样式*/
+        .search-container {
+            display: flex;
+            align-items: center;
+        }
+
+        #search-input {
+            width: 350px;
+            height: 40px;
+            padding: 0px 10px;
+            border: 1px solid #ccc;
+            border-radius: 15px;
+            font-size: 16px;
+            margin: 0 5px 0 5px;
+        }
+
+        #search-button {
+            margin-left: 0px;
+            padding: 10px 10px;
+            background-color: #1e90ff;
+            color: white;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+
+        /*按钮样式*/
+        /*搜索框样式*/
+        .touburightYS {
+            width: 330px;
+            height: 50px;
+            margin: 5px 5px 5px 20px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        /*头部右样式*/
+        .touburightDYGYS {
+            width: 90px;
+            height: 30px;
+            border-radius: 5px;
+            margin: 10px 5px 5px 5px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        /*头部左单元格样式*/
+
+        /* 内容区1整体样式（原样式基础上新增鼠标移入效果）整体放大
+        .nrq1YS {
+            width: 90%;
+            height: 150px;
+            border-radius: 10px;
+            margin-top: 10px;
+            margin-left: 50px;
+            transition: transform 0.3s ease;
+            /* 添加过渡动画 */
+        /* }
+
+        .nrq1YS:hover {
+            transform: scale(1.03);
+            /* 鼠标移入时放大3% */
+        /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);}*/
+        /* 可选：添加阴影增强立体感 */
+
+
+
+        /*内容区1样式*/
+        .nrq1leftYS {
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            /* 添加过渡动画 */
+        }
+
+        .nrq1leftYS:hover {
+            transform: scale(1.05);
+            /* 鼠标移入时放大5% */
+        }
+
+        /*内容区1左样式*/
+        .nrq1ZJYS {
+            width: 800px;
+            height: 150px;
+        }
+
+        /*内容区1中样式*/
+        .nrq1ZJDYGYS {
+            width: 140px;
+            height: 50px;
+            background-color: rgba(248, 248, 248, 0.055);
+            border-radius: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 10px 10px 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .nrq1ZJDYGYS:hover {
+            transform: scale(1.05);
+        }
+
+        /*内容区1中单元格样式*/
+        .nrq1rightYS {
+            width: 220px;
+            height: 150px;
+            border-radius: 10px;
+        }
+
+        /*内容区1右样式*/
+        .nrqrightDYGYS {
+            width: 90px;
+            height: 50px;
+            background-color: rgba(118, 118, 118, 0);
+            border-radius: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 10px 10px 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .nrqrightDYGYS:hover {
+            transform: scale(1.05);
+        }
+
+        .nrqrightDYGYS1 {
+            width: 90px;
+            height: 50px;
+            background-color: rgba(118, 118, 118, 0);
+            border-radius: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin: 2px 10px 10px 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .nrqrightDYGYS1:hover {
+            transform: scale(1.05);
+        }
+
+        /*内容区1右单元格样式*/
+        .nrq2YS {
+            width: 95%;
+            height: 400px;
+            border-radius: 10px;
+            margin-left: 30px;
+        }
+
+        /*内容区2样式*/
+        .nrq2leftYS {
+            width: 500px;
+            height: 360px;
+            /* background-color: rgb(145, 241, 12); */
+            border-radius: 15px;
+            margin: 20px 30px 10px 30px;
+        }
+
+        /*内容区2左样式*/
+        .nrq2rightYS {
+            width: 650px;
+            height: 380px;
+            border-radius: 10px;
+            margin: 10px 10px 10px 10px;
+        }
+
+        /*内容区2右样式*/
+        .nrq2rightDYGYS {
+            position: relative;
+            /* 设置相对定位，作为内部绝对定位的参考 */
+            z-index: 1;
+            /* 设置为较低值，确保在模态框之下 */
+            width: 210px;
+            height: 150px;
+            border-radius: 15px;
+            margin: 25px 10px 5px 20px;
+            overflow: hidden;
+            /* 确保图片不会超出单元格边界 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+
+        .nrq2rightDYGYS:hover {
+            transform: scale(1.05);
+        }
+
+        /* 单元格背景图片容器 */
+        .cell-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            /* 置于底层 */
+        }
+
+        /* 背景图片样式 */
+        .cell-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* 保持图片比例并覆盖整个容器 */
+            opacity: 0.6;
+            /* 设置图片透明度，可根据需要调整 */
+        }
+
+        /* 单元格内文字样式 */
+        .nrq2rightDYGYS span {
+            position: relative;
+            z-index: 1;
+            /* 置于图片上方 */
+            color: rgba(136, 92, 237, 0.54);
+            /* 设置文字颜色，确保在图片上清晰可见 */
+            font-weight: bold;
+            /* 加粗文字 */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            /* 添加文字阴影增强可读性 */
+            font-size: 30px;
+            /*字体大小*/
+        }
+
+        /*末尾样式*/
+        .mwYS {
+            width: 100%;
+            height: 80px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+        }
+
+        /* 给最外层容器添加 Flex 布局 */
+        .mwYS1 {
+            display: flex;
+            flex-direction: column;
+            /* 子元素垂直排列 */
+            align-items: center;
+            /* 子元素水平居中 */
+            justify-content: center;
+            /* 子元素垂直居中 */
+            /* 以下为可选样式，用于占满视口 */
+            margin: 0;
+            padding: 0;
+        }
+
+        /*末尾内容段落*/
+        .biaoqian a {
+            color: inherit;
+            /* 继承父元素颜色 */
+            text-decoration: none;
+            /* 移除下划线 */
+        }
+
+        .biaoqian a:hover {
+            color: #0033ff;
+            /* 鼠标悬停时变为想要的颜色 */
+            text-decoration: underline;
+            /* 鼠标悬停时显示下划线（可选） */
+        }
+
+        /*去除<a>标签自带蓝色字体*/
+
+        /*阴影样式*/
+        .yinying {
+            box-shadow: rgb(0 0 0 / 20%) 0px 2px 1px -1px,
+                rgb(0 0 0 / 14%) 0px 1px 1px 0px, rgb(0 0 0 / 12%) 0px 1px 3px 0px;
+        }
+
+        /* 模态框样式 */
+        .modal {
+            display: none;
+            /* 初始隐藏 */
+            position: fixed;
+            z-index: 1000;
+            /* 设为较高值，确保在最上层 */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+            /* 半透明背景遮罩 */
+        }
+
+        .modal-content {
+            position: relative;
+            z-index: 1001;
+            /* 比.modal更高，确保内容在遮罩层之上 */
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 300px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 20px;
+        }
+
+        input {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        button {
+            color: white;
+            padding: 0px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .green-btn {
+            background-color: #4caf4f00;
+            /* 透明色背景 */
+            color: black;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+        }
+
+        .green-btn1 {
+            background-color: #4caf4f00;
+            /* 透明色背景 */
+            color: black;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+        }
+
+        .blue-btn {
+            background-color: #1e90ff;
+            /* 蓝色背景（原登录按钮颜色） */
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            padding: 0px;
+        }
+
+        button:hover {
+            background-color: #fdfdfd00;
+        }
+
+        /*点击这里CSS样式*/
+        .vertical-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0px;
+            /* 元素间距 */
+            margin: 55px 0 0 0;
+        }
+
+        /*点击这里下方文字样式*/
+        .container {
+            display: flex;
+            /* 启用Flex布局 */
+            flex-direction: column;
+            /* 垂直排列 */
+            align-items: center;
+            /* 水平居中 */
+            justify-content: center;
+            /* 垂直居中（可选） */
+            min-height: 150px;
+            /* 设置最小高度，确保内容区域稳定 */
+            text-align: center;
+            /* 文本居中 */
+        }
+
+        .greeting-text {
+            color: #ff7700dd;
+            /* 文字颜色 */
+            font-size: 20px;
+            /* 字体大小 */
+            font-weight: bold;
+            /* 字体加粗 */
+            margin-top: 5px;
+            /* 顶部间距 */
+            font-family: Arial;
+            /* 字体类型 */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            /* 文字阴影 */
+            min-height: 30px;
+            /* 预留文本空间，防止布局跳动 */
+        }
+
+        .greeting-text1 {
+            color: #ff7700dd;
+            /* 文字颜色 */
+            font-size: 14px;
+            /* 字体大小 */
+            font-weight: bold;
+            /* 字体加粗 */
+            margin-top: 5px;
+            /* 顶部间距 */
+            font-family: Arial;
+            /* 字体类型 */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            /* 文字阴影 */
+            min-height: 30px;
+            /* 预留文本空间，防止布局跳动 */
+        }
+
+        /* 图片轮播样式 */
+        .image-carousel {
+            position: relative;
+            width: 100%;
+            height: 360px;
+            /* 与父容器高度一致 */
+            overflow: hidden;
+            border-radius: 15px;
+            /* 继承原有圆角 */
+        }
+
+        .carousel-images {
+            display: flex;
+            width: 900%;
+            /* 最多9张图片，每张100%宽度 */
+            transition: transform 0.5s ease;
+            /* 平滑切换动画 */
+        }
+
+        .carousel-images img {
+            width: calc(100%/9);
+            /* 每张图片占1/9宽度 */
+            height: 100%;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .prev-btn {
+            left: 0;
+        }
+
+        .next-btn {
+            right: 0;
+        }
+
+        .carousel-indicators {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 5px;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ddd;
+            cursor: pointer;
+        }
+
+        .indicator.active {
+            background-color: #666;
+        }
+
+        /* 图片弹窗样式 */
+        .modal-image {
+            display: block;
+            margin: 0 auto;
+            max-width: 90%;
+            max-height: 100vh;
+            margin-top: 50px;
+        }
+
+        .modal-caption {
+            text-align: center;
+            color: white;
+            margin: 10px 0;
+        }
+
+        /*钟表*/
+        .clock-container {
+            width: 200px;
+            height: 50px;
+            display: flex;
+            font-family: Arial, sans-serif;
+            font-size: 30px;
+            color: #333;
+            margin: 10px 0 0 200px;
+        }
+    </style>
+</head>
+
+<body class="column ZDYS" onload="checkCookie()">
+    <!-- 背景图容器，移至HTML结构最顶部，并添加类名 -->
+    <div class="background-image">
+        <img src="C:\Users\wangjunqi\Desktop\FJTP1.png" alt="风景图片"
+            style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+    <!--头部-->
+    <div class="toubuYS flex yinying">
+        <!--头部左-->
+        <div>
+            <!--头部左上-->
+            <div class="toubuleftYS flex ">
+                <div class="toubuleftDYGYS yinying">
+                    <div class="biaoqian">
+                        <a href="https://zhuiyingmao5.com/vodtype/1.html">电影</a>
+                    </div>
+                </div>
+                <div class="toubuleftDYGYS yinying">
+                    <div class="biaoqian">
+                        <a href="https://zhuiyingmao5.com/vodshow/2-----------.html">电视剧</a>
+                    </div>
+                </div>
+                <div class="toubuleftDYGYS yinying">
+                    <div class="biaoqian">
+                        <a href="https://www.hifini.com/">音乐</a>
+                    </div>
+                </div>
+                <div class="toubuleftDYGYS yinying">
+                    <div class="biaoqian">
+                        <a
+                            href="https://www.doubao.com/chat/?channel=cnblogs&source=hw_db_cnbannera&type=lunt&theme=bianc">AI</a>
+                    </div>
+                </div>
+                <div class="toubuleftDYGYS1 yinying">
+                    <div class="biaoqian">
+                        <a href="https://www.iiice.cn/#/">学习网站</a>
+                    </div>
+                </div>
+            </div>
+            <!-- 头部左下 -->
+            <div class="clock-container">
+                <div id="clock"></div>
+            </div>
+        </div>
+        <!--头部中-->
+        <div class="search-container  ">
+            <input type="text" id="search-input" placeholder="请输入搜索内容">
+            <button id="search-button">搜索</button>
+        </div>
+        <!--头部右-->
+        <div class="touburightYS flex">
+            <div class="touburightDYGYS yinying">
+                <div class="vertical-container container">
+                    <button class="green-btn" onclick="aN()">点击这里</button>
+                    <p id="demo" class="greeting-text"></p>
+                </div>
+
+            </div>
+            <div class="touburightDYGYS yinying">
+                <div>
+                    <div class="vertical-container container">
+                        <button class="green-btn" onclick="an1()">日期</button>
+                        <p id="demo1" class="greeting-text1"></p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="touburightDYGYS yinying">
+                <!-- 头部右侧登录区域，修改原HTML -->
+                <div class="touburightYS flex">
+                    <!-- 登录/注册按钮 -->
+                    <button class="blue-btn"
+                        style="width: 45px;height: 28px;margin: 13px 0 0 -15px;font-size: 10px;flex-direction:column"
+                        id="loginBtn">登录</button>
+                    <button class="blue-btn"
+                        style="width: 45px;height: 28px;margin: 13px 0 0 0px;font-size: 10px;flex-direction:column"
+                        id="registerBtn">注册</button>
+                </div>
+
+                <!-- 登录模态框（弹出层） -->
+                <div id="loginModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('loginModal')">&times;</span>
+                        <h2>用户登录</h2>
+                        <form id="loginForm">
+                            <label>用户名：</label>
+                            <input type="text" id="username" name="username" required>
+                            <label>密码：</label>
+                            <input type="password" id="password" name="password" required>
+                            <button type="submit">登录</button>
+                        </form>
+                        <p>还没有账号？<a href="#registerModal" id="goRegister">立即注册</a></p>
+                    </div>
+                </div>
+
+                <!-- 注册模态框（弹出层） -->
+                <div id="registerModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('registerModal')">&times;</span>
+                        <h2>用户注册</h2>
+                        <form id="registerForm">
+                            <label>用户名：</label>
+                            <input type="text" id="regUsername" name="username" required>
+                            <label>密码：</label>
+                            <input type="password" id="regPassword" name="password" required>
+                            <button type="submit">注册</button>
+                        </form>
+                        <p>已有账号？<a href="#loginModal" id="goLogin">立即登录</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--内容区1-->
+    <div class="flex nrq1YS yinying">
+        <!--内容区1左-->
+        <div class="nrq1leftYS yinying">
+            <!-- 添加用户名显示区域 -->
+            <div class="touburightDYGYS yinying">
+                <div id="userInfo" style="display: flex; align-items: center; font-size: 14px; color: #333;"></div>
+            </div>
+        </div>
+        <!--内容区1中-->
+        <div class="nrq1ZJYS column  yinying">
+            <!--内容区1中上栏-->
+            <div class="flex">
+                <div class="nrq1ZJDYGYS yinying">
+                    <div class="biaoqian">
+                        <a href="https://zhuiyingmao5.com/vodtype/1.html">电影</a>
+                    </div>
+                </div>
+                <hr>
+                <div class="nrq1ZJDYGYS yinying">
+                    <div class="biaoqian">
+                        <a href="https://zhuiyingmao5.com/vodshow/2-----------.html">电视剧</a>
+                    </div>
+                </div>
+                <hr>
+                <div class="nrq1ZJDYGYS yinying">
+                    <div class="biaoqian">
+                        <a href="https://www.hifini.com/">音乐</a>
+                    </div>
+                </div>
+                <hr>
+                <div class="nrq1ZJDYGYS yinying">
+                    <div class="biaoqian">
+                        <a
+                            href="https://www.doubao.com/chat/?channel=cnblogs&source=hw_db_cnbannera&type=lunt&theme=bianc">AI</a>
+                    </div>
+                </div>
+                <hr>
+                <div class="nrq1ZJDYGYS yinying biaoqian">
+                    <a href="https://www.iiice.cn/#/">学习网站</a>
+                </div>
+            </div>
+            <!--内容区1中下栏-->
+            <div class="flex">
+                <div class="nrq1ZJDYGYS yinying">
+                    <!--警告框-->
+                    <input type="button" onclick="an3()" value="666" class="green-btn1" />
+                </div>
+                <hr>
+                <div class="nrq1ZJDYGYS yinying">
+                    <div class="biaoqian">
+                        <a href="C:\Users\wangjunqi\Desktop\MY-HTML\jsj.html">计算器</a>
+                    </div>
+                </div>
+                <hr>
+                <div class="nrq1ZJDYGYS yinying">666</div>
+                <hr>
+                <div class="nrq1ZJDYGYS yinying">666</div>
+                <hr>
+                <div class="nrq1ZJDYGYS yinying">666</div>
+            </div>
+        </div>
+        <hr>
+        <!--内容区1右-->
+        <div class="nrq1rightYS yinying">
+            <!--内容区1右上栏-->
+            <div class="flex">
+                <div class="nrqrightDYGYS yinying">666</div>
+                <hr>
+                <div class="nrqrightDYGYS yinying">666</div>
+            </div>
+            <hr>
+            <!--内容区1右下栏-->
+            <div class="flex">
+                <div class="nrqrightDYGYS1 yinying">666</div>
+                <hr>
+                <div class="nrqrightDYGYS1 yinying">666</div>
+            </div>
+
+        </div>
+    </div>
+    <!--内容区2-->
+    <div class="nrq2YS flex ">
+        <!-- 在内容区2左的div中添加图片轮播容器 -->
+        <div class="nrq2leftYS yinying">
+            <!-- 图片轮播容器 -->
+            <div class="image-carousel">
+                <!-- 图片列表 -->
+                <div class="carousel-images" id="carouselImages">
+                    <!-- 示例图片，最多支持9张，可自行替换图片地址 -->
+                    <img src="https://picsum.photos/seed/1/300/200" alt="图片1">
+                    <img src="https://picsum.photos/seed/2/300/200" alt="图片2">
+                    <img src="https://picsum.photos/seed/3/300/200" alt="图片3">
+                    <img src="https://picsum.photos/seed/4/300/200" alt="图片4">
+                    <img src="https://picsum.photos/seed/5/300/200" alt="图片5">
+                    <img src="https://picsum.photos/seed/6/300/200" alt="图片6">
+                    <img src="https://picsum.photos/seed/7/300/200" alt="图片7">
+                    <img src="https://picsum.photos/seed/8/300/200" alt="图片8">
+                    <img src="https://picsum.photos/seed/9/300/200" alt="图片9">
+                </div>
+
+                <!-- 左右切换按钮 -->
+                <button class="carousel-btn prev-btn" onclick="changeImage(-1)">&#10094;</button>
+                <button class="carousel-btn next-btn" onclick="changeImage(1)">&#10095;</button>
+
+                <!-- 分页指示器容器 -->
+                <div class="carousel-indicators" id="indicators"></div>
+            </div>
+        </div>
+
+        <!-- 图片弹窗模态框 -->
+        <div id="imageModal" class="modal">
+            <span class="close" onclick="closeModal('imageModal')">&times;</span>
+            <img class="modal-image" id="modalImage" alt="弹窗图片">
+            <div id="caption" class="modal-caption"></div>
+        </div>
+        <!--内容区2右-->
+        <div class="nrq2rightYS column yinying">
+            <!--内容区2右单元格-->
+            <div class="flex">
+                <div class="nrq2rightDYGYS yinying biaoqian">
+                    <a href="https://zhuiyingmao5.com/vodtype/1.html" target="_blank">
+                        <div class="cell-bg">
+                            <img src="https://picsum.photos/seed/movie/200/150" alt="电影">
+                        </div>
+                        <span>电影</span>
+                    </a>
+                </div>
+                <div class="nrq2rightDYGYS yinying biaoqian">
+                    <a href="https://zhuiyingmao5.com/vodshow/2-----------.html" target="_blank">
+                        <div class="cell-bg">
+                            <img src="https://picsum.photos/seed/tv/200/150" alt="电视剧">
+                        </div>
+                        <span>电视剧</span>
+                    </a>
+                </div>
+                <div class="nrq2rightDYGYS yinying biaoqian">
+                    <a href="https://www.hifini.com/" target="_blank">
+                        <div class="cell-bg">
+                            <img src="https://picsum.photos/seed/music/200/150" alt="音乐">
+                        </div>
+                        <span>音乐</span>
+                    </a>
+                </div>
+            </div>
+            <div class="flex">
+                <div class="nrq2rightDYGYS yinying biaoqian">
+                    <a href="https://www.doubao.com/chat/?channel=cnblogs&source=hw_db_cnbannera&type=lunt&theme=bianc"
+                        target="_blank">
+                        <div class="cell-bg">
+                            <img src="https://picsum.photos/seed/ai/200/150" alt="AI">
+                        </div>
+                        <span>AI</span>
+                    </a>
+                </div>
+                <div class="nrq2rightDYGYS yinying biaoqian">
+                    <a href="#" onclick="showToolsModal()">
+                        <div class="cell-bg">
+                            <img src="https://picsum.photos/seed/tool/200/150" alt="工具">
+                        </div>
+                        <span>工具</span>
+                    </a>
+                </div>
+                <div class="nrq2rightDYGYS yinying biaoqian">
+                    <a href="https://www.iiice.cn/#/" target="_blank">
+                        <div class="cell-bg">
+                            <img src="https://picsum.photos/seed/study/200/150" alt="学习网站">
+                        </div>
+                        <span>学习网站</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--末尾-->
+    <div class="mwYS yinying">
+        <p style="margin: 20px 0 0 0;" class="mwYS1">个人网站</p>
+        <div class="mwYS1 biaoqian">
+            <a style="align-self:center"
+                href="https://space.bilibili.com/34786453/lists?sid=268989&spm_id_from=333.788.0.0">感谢康文昌大佬的教学视频</a>
+        </div>
+    </div>
+    <script>
+        // 获取元素
+        const loginBtn = document.getElementById('loginBtn');
+        const registerBtn = document.getElementById('registerBtn');
+        const loginModal = document.getElementById('loginModal');
+        const registerModal = document.getElementById('registerModal');
+        const loginForm = document.getElementById('loginForm');
+        const registerForm = document.getElementById('registerForm');
+        const closeBtns = document.getElementsByClassName('close');
+
+        // 打开登录模态框
+        loginBtn.addEventListener('click', () => {
+            loginModal.style.display = 'block';
+        });
+
+        // 打开注册模态框
+        registerBtn.addEventListener('click', () => {
+            registerModal.style.display = 'block';
+        });
+
+        // 关闭模态框
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        // 登录表单提交
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(loginForm);
+
+            // 注意：这里使用模拟数据，实际应用中应连接到真实的后端API
+            // 以下是模拟登录成功的代码
+            const mockData = {
+                success: true,
+                username: formData.get('username'),
+                token: 'mock_token_12345'
+            };
+
+            if (mockData.success) {
+                alert('登录成功！');
+                loginModal.style.display = 'none';
+                // 存储用户状态（如Token）
+                localStorage.setItem('userToken', mockData.token);
+                // 更新页面显示（如显示用户名）
+                document.getElementById('userInfo').textContent = `欢迎 ${mockData.username} `;
+                document.getElementById('userInfo').innerHTML += '<button class="green-btn1" onclick="logout()">退出</button>';
+            } else {
+                alert('登录失败：' + mockData.message);
+            }
+        });
+
+        // 注册表单提交
+        registerForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(registerForm);
+
+            // 注意：这里使用模拟数据，实际应用中应连接到真实的后端API
+            // 以下是模拟注册成功的代码
+            const mockData = {
+                success: true,
+                message: '注册成功，请登录'
+            };
+
+            if (mockData.success) {
+                alert(mockData.message);
+                registerModal.style.display = 'none';
+            } else {
+                alert('注册失败：' + mockData.message);
+            }
+        });
+
+        /*点击这里按钮*/
+        function aN() {
+            let x = "";
+            let time = new Date().getHours();
+            if (time < 8) {
+                x = "早上好";
+            } else if (time < 12) {
+                x = "上午好";
+            } else if (time < 18) {
+                x = "下午好";
+            } else {
+                x = "晚上好";
+            }
+            document.getElementById("demo").innerHTML = x;
+        }
+
+        /*头部单元格日期*/
+        function an1() {
+            let x;
+            let d = new Date().getDay();
+            switch (d) {
+                case 0: x = "今天是星期日";
+                    break;
+                case 1: x = "今天是星期一";
+                    break;
+                case 2: x = "今天是星期二";
+                    break;
+                case 3: x = "今天是星期三";
+                    break;
+                case 4: x = "今天是星期四";
+                    break;
+                case 5: x = "今天是星期五";
+                    break;
+                case 6: x = "今天是星期六";
+                    break;
+            }
+            document.getElementById("demo1").innerHTML = x;
+        }
+
+        /*警告框*/
+        function an3() {
+            alert("警告：没事不要乱点哦！！！");
+        }
+
+        /*cookie*/
+        function setCookie(cname, cvalue, exdays) {
+            const d = new Date();
+            d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+            const expires = `expires=${d.toUTCString()}`; // 使用 UTC 时间格式
+            document.cookie = `${cname}=${encodeURIComponent(cvalue)}; ${expires}; path=/`; // 确保路径正确
+        }
+
+        function getCookie(cname) {
+            const name = `${cname}=`;
+            const ca = document.cookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i].trim();
+                if (c.indexOf(name) === 0) {
+                    return decodeURIComponent(c.substring(name.length)); // 解码 URL 编码值
+                }
+            }
+            return null;
+        }
+
+        function checkCookie() {
+            const username = getCookie('username');
+            if (username) {
+                // 显示用户名
+                document.getElementById('userInfo').textContent = `欢迎 ${username} `;
+                // 添加退出功能（示例）
+                document.getElementById('userInfo').innerHTML += '<button class="green-btn1" onclick="logout()">退出</button>';
+            } else {
+                // 使用自定义模态框获取用户名
+                showUsernameModal();
+            }
+        }
+
+        // 退出功能：删除 Cookie
+        function logout() {
+            setCookie('username', '', -1); // 设置过期时间为过去，删除 Cookie
+            document.getElementById('userInfo').textContent = '';
+            alert('已退出登录');
+        }
+
+        // 自定义用户名输入模态框
+        function showUsernameModal() {
+            const modal = document.createElement('div');
+            modal.className = 'modal';
+            modal.id = 'usernameModal';
+            modal.innerHTML = `
+                <div class="modal-content" style="width: 300px; text-align: center;">
+                    <span class="close" onclick="closeModal('usernameModal')">&times;</span>
+                    <h3>请输入你的名字</h3>
+                    <input type="text" id="usernameInput" placeholder="请输入用户名" required>
+                    <button class="blue-btn" onclick="saveUsername()">保存</button>
+                </div>
+            `;
+            document.body.appendChild(modal);
+        }
+
+        function saveUsername() {
+            const username = document.getElementById('usernameInput').value.trim();
+            if (username) {
+                setCookie('username', username, 30);
+                closeModal('usernameModal');
+                checkCookie(); // 刷新用户信息
+            }
+        }
+
+        // 工具模态框（新增功能）
+        function showToolsModal() {
+            const modal = document.createElement('div');
+            modal.className = 'modal';
+            modal.id = 'toolsModal';
+            modal.innerHTML = `
+                <div class="modal-content" style="width: 300px; text-align: center;">
+                    <span class="close" onclick="closeModal('toolsModal')">&times;</span>
+                    <h3>工具列表</h3>
+                    <div style="padding: 10px; text-align: left;">
+                        <p><a href="C:\Users\wangjunqi\Desktop\MY-HTML\jsj.html" target="_blank">计算器</a></p>
+                        <p><a href="#" onclick="closeModal('toolsModal'); showWeather()">天气预报</a></p>
+                        <p><a href="#" onclick="closeModal('toolsModal'); showCalendar()">日历</a></p>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+        }
+
+        // 示例工具函数
+        function showWeather() {
+            alert("这是天气预报功能，实际应用中可以连接天气API获取数据");
+        }
+
+        function showCalendar() {
+            alert("这是日历功能，实际应用中可以实现日历视图");
+        }
+
+        // 轮播图功能
+        // 轮播图变量
+        let currentIndex = 0; // 当前显示图片索引
+        const images = document.querySelectorAll('#carouselImages img'); // 所有图片元素
+        const totalImages = images.length; // 图片总数
+        const carouselImages = document.getElementById('carouselImages');
+        const indicatorsContainer = document.getElementById('indicators');
+
+        // 初始化轮播图
+        function initCarousel() {
+            // 创建分页指示器
+            for (let i = 0; i < totalImages; i++) {
+                const indicator = document.createElement('div');
+                indicator.className = 'indicator';
+                indicator.addEventListener('click', () => goToImage(i));
+                indicatorsContainer.appendChild(indicator);
+            }
+            indicatorsContainer.children[0].classList.add('active'); // 初始激活第一个指示器
+
+            // 添加自动轮播功能
+            startAutoCarousel();
+        }
+
+        // 自动轮播
+        let carouselInterval;
+        function startAutoCarousel() {
+            carouselInterval = setInterval(() => {
+                changeImage(1);
+            }, 3000); // 每3秒切换一次
+        }
+
+        // 暂停自动轮播（鼠标悬停时）
+        document.querySelector('.image-carousel').addEventListener('mouseenter', () => {
+            clearInterval(carouselInterval);
+        });
+
+        // 恢复自动轮播（鼠标离开时）
+        document.querySelector('.image-carousel').addEventListener('mouseleave', () => {
+            startAutoCarousel();
+        });
+
+        // 切换图片
+        function changeImage(direction) {
+            currentIndex = (currentIndex + direction + totalImages) % totalImages;
+            updateCarousel();
+        }
+
+        // 跳转到指定图片
+        function goToImage(index) {
+            currentIndex = index;
+            updateCarousel();
+        }
+
+        // 更新轮播图显示
+        function updateCarousel() {
+            // 移动图片容器
+            carouselImages.style.transform = `translateX(-${currentIndex * 100 / 9}%)`; // 计算平移距离
+
+            // 更新分页指示器
+            document.querySelectorAll('.indicator').forEach((indicator, i) => {
+                indicator.classList.toggle('active', i === currentIndex);
+            });
+        }
+
+        // 图片点击事件：打开弹窗
+        images.forEach((img, index) => {
+            img.addEventListener('click', () => {
+                openModal(index);
+            });
+        });
+
+        // 弹窗相关变量
+        const imageModal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const captionText = document.getElementById('caption');
+
+        // 打开弹窗
+        function openModal(index) {
+            imageModal.style.display = 'block';
+            modalImage.src = images[index].src;
+            captionText.textContent = images[index].alt;
+            currentIndex = index; // 同步轮播图索引
+        }
+
+        // 初始化轮播图
+        document.addEventListener('DOMContentLoaded', initCarousel);
+
+        // 实时钟表函数
+        function updateClock() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+        }
+
+        // 页面加载时初始化钟表
+        window.onload = function () {
+            updateClock(); // 立即显示当前时间
+            setInterval(updateClock, 1000); // 每秒更新时间
+        };
+    </script>
+</body>
+
+</html>
